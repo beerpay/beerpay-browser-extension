@@ -1,0 +1,14 @@
+{
+  "appName": {
+    "message": "Beerpay",
+    "description": "Beerpay"
+  },
+  "appDescription": {
+    "message": "Beerpay - Browser extension",
+    "description": "Beerpay - Browser extension"
+  },
+  "btnTooltip": {
+    "message": "Beerpay",
+    "description": "Beerpay"
+  }
+}
