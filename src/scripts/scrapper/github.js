@@ -1,5 +1,5 @@
-import ext from "./../utils/ext";
-import $ from "./../vendor/jquery.min"
+var ext = require('./../utils/ext');
+var $ = require('./../vendor/jquery.min');
 
 // Assets
 var bpLogo = ext.extension.getURL('images/beerpay-logo.svg');
@@ -92,4 +92,3 @@ ext.runtime.onMessage.addListener(function (request, sender, sendResponse) {
     _getGitHubInfo();
   }
 });
-
