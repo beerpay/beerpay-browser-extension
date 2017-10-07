@@ -1,7 +1,7 @@
 {
   "name": "beerpay-browser-extension",
   "version": "1.0.0",
-  "description": "Beerpay - Google Chrome extension",
+  "description": "Beerpay - Browser extension",
   "scripts": {
     "chrome-build": "cross-env TARGET=chrome gulp",
     "opera-build": "cross-env TARGET=opera gulp",
@@ -15,10 +15,10 @@
     "firefox-dist": "cross-env NODE_ENV=production cross-env TARGET=firefox gulp dist",
     "dist": "npm run chrome-dist && npm run opera-dist && npm run firefox-dist"
   },
-  "homepage": "https://github.com/beerpay/beerpay-chrome-extension",
+  "homepage": "https://github.com/beerpay/beerpay-browser-extension",
   "devDependencies": {
     "babel-core": "^6.1.2",
-    "babel-preset-es2015": "^6.1.2",
+    "babel-preset-env": "^1.6.0",
     "babelify": "^7.3.0",
     "browserify": "^14.1.0",
     "cross-env": "^3.2.4",
