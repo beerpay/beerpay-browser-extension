@@ -1,5 +1,5 @@
-var ext = require('./../utils/ext');
 var $ = require('./../vendor/jquery.min');
+var ext = require('./../utils/ext');
 
 // Assets
 var bpLogo = ext.extension.getURL('images/beerpay-logo.svg');
@@ -87,8 +87,8 @@ var _getGitHubInfo = function () {
 };
 
 // Init
-ext.runtime.onMessage.addListener(function (request, sender, sendResponse) {
-  if (request.action === 'change') {
+ext.runtime.onMessage.addListener(function (request) {
+  if (request.action === 'refresh') {
     _getGitHubInfo();
   }
 });

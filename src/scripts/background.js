@@ -1,17 +1,14 @@
 var ext = require('./utils/ext');
-var $ = require('./vendor/jquery.min');
 
-ext.tabs.onUpdated.addListener(function (tabId, changeInfo, tab) {
+ext.tabs.onUpdated.addListener(function (tabId, changeInfo) {
   var timer;
-  var sendMessage = function () {
+
+  if (changeInfo.status === 'complete') {
     timer = setInterval(function () {
-      ext.tabs.sendMessage(tabId, { action: 'change' }).then(function (response) {
+      ext.tabs
+      .sendMessage(tabId, { action: 'refresh' }, function () {
         clearInterval(timer);
       });
     }, 100);
-  }
-
-  if (changeInfo.status === 'complete') {
-    sendMessage();
   }
 });
