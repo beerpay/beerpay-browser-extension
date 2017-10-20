@@ -2,7 +2,7 @@ var $ = require('./../vendor/jquery.min');
 var ext = require('./../utils/ext');
 
 // Assets
-var bpLogo = ext.extension.getURL('images/beerpay-logo.svg');
+var bpLogo = ext.extension.getURL('icons/beerpay-logo.svg');
 
 // Vars
 var baseUrl = 'https://beerpay.io';
