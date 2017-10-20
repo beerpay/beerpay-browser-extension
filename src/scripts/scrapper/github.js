@@ -5,7 +5,7 @@ var ext = require('./../utils/ext');
 var bpLogo = ext.extension.getURL('icons/beerpay-logo.svg');
 
 // Vars
-var baseUrl = 'https://beerpay.io';
+var baseUrl = 'https://beerpay.io/';
 
 // Info
 var github = {};
@@ -20,6 +20,7 @@ var _addImportWishBtn = function () {
       var $item = $(this);
       var issueIdRegex = $item.attr('id').match(/\d+/g);
       var issueId = issueIdRegex ? parseInt(issueIdRegex[0], 10) : 0;
+      var beerpayProjectUrl = baseUrl + github.ownerName + '/' + github.projectName;
       var btnHtml;
 
       var importedWish = project.imported_wishes.find(function (wish) {
@@ -27,9 +28,9 @@ var _addImportWishBtn = function () {
       });
 
       if (importedWish) {
-        btnHtml = '<a href="' + baseUrl + '/' + github.ownerName + '/' + github.projectName + '/wishes/' + importedWish._id + '" target="_blank" title="View imported Wish on Beerpay" class="btn btn-sm btn-beerpay-wish-imported float-right mt-2 mr-3 mb-2"><small>Imported on Berepay</small></a>';
+        btnHtml = '<a href="' + beerpayProjectUrl + '/wishes/' + importedWish._id + '" target="_blank" title="View imported Wish on Beerpay" class="btn btn-sm btn-beerpay-wish-imported float-right mt-2 mr-3 mb-2"><small>Imported on Berepay</small></a>';
       } else {
-        btnHtml = '<a href="' + baseUrl + '/' + github.ownerName + '/' + github.projectName + '?import=' + issueId + '" target="_blank" title="Import this issue as a Wish on Beerpay" class="btn btn-sm btn-beerpay-wish float-right mt-2 mr-3 mb-2"><small>Import as a Wish</small></a>';
+        btnHtml = '<a href="' + beerpayProjectUrl + '?import=' + issueId + '" target="_blank" title="Import this issue as a Wish on Beerpay" class="btn btn-sm btn-beerpay-wish float-right mt-2 mr-3 mb-2"><small>Import as a Wish</small></a>';
       }
 
       var $btnContainer = $item.find('.col-2.float-right');
@@ -42,14 +43,14 @@ var _addBeerpayBtn = function (isInBeerpay) {
   var totalAmount = project ? project.total_amount : 0;
 
   var btnUrl = isInBeerpay ? github.ownerName + '/' + github.projectName : 'invite?user=' + github.ownerName + '&repo=' + github.projectName;
-  var btnHtml = '<li class="beerpay-button"><a href="' + baseUrl + '/' + btnUrl + '" class="btn btn-sm btn-with-count btn-beerpay" target="_blank"><img src="' + bpLogo + '" class="beerpay-logo"> Beerpay</a><span class="social-count">$' + totalAmount + '</span></li>';
+  var btnHtml = '<li class="beerpay-button"><a href="' + baseUrl + btnUrl + '" class="btn btn-sm btn-with-count btn-beerpay" target="_blank"><img src="' + bpLogo + '" class="beerpay-logo"> Beerpay</a><span class="social-count">$' + totalAmount + '</span></li>';
 
   $('.beerpay-button').remove();
   $('.pagehead-actions').prepend(btnHtml);
 };
 
 var _isInBeerpay = function () {
-  var url = baseUrl + '/api/v1/browser-extension/' + github.ownerName + '/' + github.projectName;
+  var url = baseUrl + 'api/v1/browser-extension/' + github.ownerName + '/' + github.projectName;
 
   $.getJSON(url)
     .done(function (data) {
