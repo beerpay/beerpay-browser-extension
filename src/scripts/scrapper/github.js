@@ -58,7 +58,7 @@ var _isInBeerpay = function () {
       _addBeerpayBtn(true);
       _addImportWishBtn();
     })
-    .fail(function (jqxhr, textStatus, error) {
+    .fail(function () {
       _addBeerpayBtn(false);
     });
 };
