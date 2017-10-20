@@ -5,6 +5,10 @@ Extension to use [Beerpay](https://beerpay.io) on Google Chrome, Firefox and Ope
 https://chrome.google.com/webstore/detail/beerpay/ikadcikdnbdbjkfbpklopjdonhcpjdih
 
 
+## Install from Add-ons for Firefox
+https://addons.mozilla.org/addon/beerpay
+
+
 ## Load the extension in Chrome & Opera
 1. Open Chrome/Opera browser and navigate to chrome://extensions
 2. Select "Developer Mode" and then click "Load unpacked extension..."
