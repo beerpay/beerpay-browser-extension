@@ -50,10 +50,9 @@
     "icons/beerpay-logo.svg"
   ],
   "permissions": [
-    "webNavigation",
     "tabs",
-    "https://github.com/",
-    "https://gist.github.com/",
-    "https://beerpay.io/api/v1/*"
+    "https://github.com/*",
+    "https://gist.github.com/*",
+    "https://beerpay.io/*"
   ]
 }
