@@ -117,17 +117,17 @@ function pipe(src, ...transforms) {
 
 function mergeAll(dest) {
   return merge(
+    pipe('./src/_locales/**/*', `./build/${dest}/_locales`),
     pipe('./src/icons/**/*', `./build/${dest}/icons`),
-    pipe(['./src/_locales/**/*'], `./build/${dest}/_locales`),
-    pipe([`./src/images/${target}/**/*`], `./build/${dest}/images`),
-    pipe(['./src/images/shared/**/*'], `./build/${dest}/images`),
-    pipe(['./src/**/*.html'], `./build/${dest}`)
+    pipe(`./src/images/${target}/**/*`, `./build/${dest}/images`),
+    pipe('./src/images/shared/**/*', `./build/${dest}/images`),
+    pipe('./src/scripts/vendor/*', `./build/${dest}/scripts/vendor`),
+    pipe('./src/**/*.html', `./build/${dest}`)
   )
 }
 
 function buildJS(target) {
   const files = [
-    'vendor/jquery.min.js',
     'scrapper/github.js',
     'background.js',
     'livereload.js'
